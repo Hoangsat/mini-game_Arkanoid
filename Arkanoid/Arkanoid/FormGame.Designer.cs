@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label_top = new System.Windows.Forms.Label();
             this.label_left = new System.Windows.Forms.Label();
             this.label_right = new System.Windows.Forms.Label();
@@ -38,30 +39,31 @@
             this.brick2 = new System.Windows.Forms.Label();
             this.brick3 = new System.Windows.Forms.Label();
             this.brick4 = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label_top
             // 
             this.label_top.BackColor = System.Drawing.Color.Yellow;
-            this.label_top.Location = new System.Drawing.Point(0, 0);
+            this.label_top.Location = new System.Drawing.Point(-1, 0);
             this.label_top.Name = "label_top";
-            this.label_top.Size = new System.Drawing.Size(1094, 10);
+            this.label_top.Size = new System.Drawing.Size(956, 22);
             this.label_top.TabIndex = 0;
             // 
             // label_left
             // 
             this.label_left.BackColor = System.Drawing.Color.Yellow;
-            this.label_left.Location = new System.Drawing.Point(-1, 10);
+            this.label_left.Location = new System.Drawing.Point(-1, 0);
             this.label_left.Name = "label_left";
-            this.label_left.Size = new System.Drawing.Size(12, 588);
+            this.label_left.Size = new System.Drawing.Size(19, 568);
             this.label_left.TabIndex = 2;
             // 
             // label_right
             // 
             this.label_right.BackColor = System.Drawing.Color.Yellow;
-            this.label_right.Location = new System.Drawing.Point(1082, -1);
+            this.label_right.Location = new System.Drawing.Point(937, 0);
             this.label_right.Name = "label_right";
-            this.label_right.Size = new System.Drawing.Size(12, 599);
+            this.label_right.Size = new System.Drawing.Size(18, 568);
             this.label_right.TabIndex = 3;
             // 
             // racket
@@ -69,7 +71,7 @@
             this.racket.BackColor = System.Drawing.Color.Navy;
             this.racket.Enabled = false;
             this.racket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.racket.Location = new System.Drawing.Point(441, 598);
+            this.racket.Location = new System.Drawing.Point(399, 549);
             this.racket.Name = "racket";
             this.racket.Size = new System.Drawing.Size(121, 19);
             this.racket.TabIndex = 4;
@@ -81,7 +83,7 @@
             this.ball.AutoSize = true;
             this.ball.Checked = true;
             this.ball.Enabled = false;
-            this.ball.Location = new System.Drawing.Point(503, 579);
+            this.ball.Location = new System.Drawing.Point(454, 539);
             this.ball.Name = "ball";
             this.ball.Size = new System.Drawing.Size(14, 13);
             this.ball.TabIndex = 5;
@@ -99,7 +101,7 @@
             // brick5
             // 
             this.brick5.BackColor = System.Drawing.Color.Red;
-            this.brick5.Location = new System.Drawing.Point(888, 315);
+            this.brick5.Location = new System.Drawing.Point(829, 319);
             this.brick5.Name = "brick5";
             this.brick5.Size = new System.Drawing.Size(62, 28);
             this.brick5.TabIndex = 7;
@@ -128,12 +130,17 @@
             this.brick4.Size = new System.Drawing.Size(62, 28);
             this.brick4.TabIndex = 10;
             // 
+            // timer
+            // 
+            this.timer.Interval = 30;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1093, 618);
+            this.ClientSize = new System.Drawing.Size(954, 564);
             this.Controls.Add(this.brick4);
             this.Controls.Add(this.brick3);
             this.Controls.Add(this.brick2);
@@ -169,5 +176,6 @@
         private System.Windows.Forms.Label brick2;
         private System.Windows.Forms.Label brick3;
         private System.Windows.Forms.Label brick4;
+        private System.Windows.Forms.Timer timer;
     }
 }
