@@ -47,7 +47,7 @@
             this.label_top.BackColor = System.Drawing.Color.Yellow;
             this.label_top.Location = new System.Drawing.Point(-1, 0);
             this.label_top.Name = "label_top";
-            this.label_top.Size = new System.Drawing.Size(956, 22);
+            this.label_top.Size = new System.Drawing.Size(995, 18);
             this.label_top.TabIndex = 0;
             // 
             // label_left
@@ -55,15 +55,15 @@
             this.label_left.BackColor = System.Drawing.Color.Yellow;
             this.label_left.Location = new System.Drawing.Point(-1, 0);
             this.label_left.Name = "label_left";
-            this.label_left.Size = new System.Drawing.Size(19, 568);
+            this.label_left.Size = new System.Drawing.Size(16, 594);
             this.label_left.TabIndex = 2;
             // 
             // label_right
             // 
             this.label_right.BackColor = System.Drawing.Color.Yellow;
-            this.label_right.Location = new System.Drawing.Point(937, 0);
+            this.label_right.Location = new System.Drawing.Point(976, 0);
             this.label_right.Name = "label_right";
-            this.label_right.Size = new System.Drawing.Size(18, 568);
+            this.label_right.Size = new System.Drawing.Size(18, 594);
             this.label_right.TabIndex = 3;
             // 
             // racket
@@ -71,9 +71,9 @@
             this.racket.BackColor = System.Drawing.Color.Navy;
             this.racket.Enabled = false;
             this.racket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.racket.Location = new System.Drawing.Point(399, 549);
+            this.racket.Location = new System.Drawing.Point(401, 576);
             this.racket.Name = "racket";
-            this.racket.Size = new System.Drawing.Size(121, 19);
+            this.racket.Size = new System.Drawing.Size(137, 18);
             this.racket.TabIndex = 4;
             this.racket.Text = "= = = = = = == = ";
             this.racket.UseVisualStyleBackColor = false;
@@ -83,7 +83,7 @@
             this.ball.AutoSize = true;
             this.ball.Checked = true;
             this.ball.Enabled = false;
-            this.ball.Location = new System.Drawing.Point(454, 539);
+            this.ball.Location = new System.Drawing.Point(465, 557);
             this.ball.Name = "ball";
             this.ball.Size = new System.Drawing.Size(14, 13);
             this.ball.TabIndex = 5;
@@ -140,7 +140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(954, 564);
+            this.ClientSize = new System.Drawing.Size(994, 732);
             this.Controls.Add(this.brick4);
             this.Controls.Add(this.brick3);
             this.Controls.Add(this.brick2);

@@ -79,8 +79,8 @@ namespace Arkanoid
                 by1, by2;
             bx1 = ball_x;
             bx2 = ball_x + ball.Width;
-            by2 = ball_y;
-            by1 = ball_y + ball.Height;
+            by1 = ball_y;
+            by2 = ball_y + ball.Height;
             if (bx1 + ball_sx < side_lx)
                 ball_sx = ball_shift_x;
             if (bx2 + ball_sx > side_rx)
@@ -88,7 +88,17 @@ namespace Arkanoid
             if (by1 + ball_sy < side_uy)
                 ball_sy = ball_shift_y;
             if(by2+ball_sy > racket_y)
+            {
+                int bx0, by0;
+                bx0 = (bx1 + bx2) / 2;
+                by0 = (by1 + by2) / 2;
+                int rx1, rx2;
+                rx1 = racket_x;
+                rx2 = racket_x+racket.Width;
+                if(rx1<=bx0&&bx0<=rx2)
                 ball_sy = -ball_shift_y;
+
+            }   
 
 
             ball_x += ball_sx;
