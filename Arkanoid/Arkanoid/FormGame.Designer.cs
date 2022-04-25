@@ -47,7 +47,7 @@
             this.label_top.BackColor = System.Drawing.Color.Yellow;
             this.label_top.Location = new System.Drawing.Point(-1, 0);
             this.label_top.Name = "label_top";
-            this.label_top.Size = new System.Drawing.Size(995, 18);
+            this.label_top.Size = new System.Drawing.Size(995, 14);
             this.label_top.TabIndex = 0;
             // 
             // label_left
@@ -83,7 +83,8 @@
             this.ball.AutoSize = true;
             this.ball.Checked = true;
             this.ball.Enabled = false;
-            this.ball.Location = new System.Drawing.Point(465, 557);
+            this.ball.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ball.Location = new System.Drawing.Point(463, 557);
             this.ball.Name = "ball";
             this.ball.Size = new System.Drawing.Size(14, 13);
             this.ball.TabIndex = 5;
@@ -140,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(994, 732);
+            this.ClientSize = new System.Drawing.Size(994, 595);
             this.Controls.Add(this.brick4);
             this.Controls.Add(this.brick3);
             this.Controls.Add(this.brick2);

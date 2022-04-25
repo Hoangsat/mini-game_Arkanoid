@@ -75,6 +75,7 @@ namespace Arkanoid
         }
         private void move_ball()
         {
+            
             int bx1, bx2,
                 by1, by2;
             bx1 = ball_x;
@@ -87,28 +88,61 @@ namespace Arkanoid
                 ball_sx = -ball_shift_x;
             if (by1 + ball_sy < side_uy)
                 ball_sy = ball_shift_y;
-            if(by2+ball_sy > racket_y)
+            if (by2 + ball_sy > racket_y)
             {
                 int bx0, by0;
                 bx0 = (bx1 + bx2) / 2;
                 by0 = (by1 + by2) / 2;
                 int rx1, rx2;
                 rx1 = racket_x;
-                rx2 = racket_x+racket.Width;
-                if(rx1<=bx0&&bx0<=rx2)
-                ball_sy = -ball_shift_y;
+                rx2 = racket_x + racket.Width;
+                if (rx1 <= bx0 && bx0 <= rx2)
+                {
+                    ball_sy = -ball_shift_y;
 
+                }
+                else
+                     if (rx1 <= bx2+ball.Width && bx2 + ball.Width <= rx2)
+                {
+                    ball_sy = -ball_shift_y;
+                    ball_sx = -ball_shift_x;
+                }
+                else
+                    if (rx1 <= bx1 - ball.Width && bx1 - ball.Width <= rx2)
+                {
+                    ball_sy = -ball_shift_y;
+                    ball_sx = ball_shift_x;
+                }
+                else
+                    lose_ball();
             }   
-
+           
 
             ball_x += ball_sx;
             ball_y += ball_sy;
             ball.Location = new Point(ball_x, ball_y);
+            Cross_brick(brick1);
+            Cross_brick(brick2);
+            Cross_brick(brick3);
+            Cross_brick(brick4);
+            Cross_brick(brick5);
         }
+        private void Cross_brick(Label brick)
+        {
+            if (!brick.Visible) return;
 
-        private void timer_Tick(object sender, EventArgs e)
+        }
+        private void lose_ball()
+            {
+            timer.Enabled = false;
+            MessageBox.Show("Lose game");
+            DialogResult = System.Windows.Forms.DialogResult.Abort; 
+        }
+    private void timer_Tick(object sender, EventArgs e)
         {
             move_ball();
+           
         }
+       
     }
 }
