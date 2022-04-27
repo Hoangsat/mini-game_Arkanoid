@@ -130,6 +130,24 @@ namespace Arkanoid
         private void Cross_brick(Label brick)
         {
             if (!brick.Visible) return;
+            int bx1, bx0, bx2,
+                by1, by0, by2;
+            int rx1, rx2,
+                ry1, ry2;
+
+            bx1 = ball_x;
+            bx2 = ball_x + ball.Width;
+            bx0 = (bx1 + bx2) / 2;
+            by1 = ball_y;
+            by2 = ball_y + ball.Height;
+            by0= (by1 + by2) / 2;
+            rx1 = brick.Location.X;
+            rx2 = rx1 + brick.Width;
+            ry1 = brick.Location.Y;
+            ry2 = rx1 + brick.Height;
+
+
+                
 
         }
         private void lose_ball()
