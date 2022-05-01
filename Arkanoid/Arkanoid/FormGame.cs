@@ -129,6 +129,7 @@ namespace Arkanoid
         }
         private void Cross_brick(Label brick)
         {
+
             if (!brick.Visible) return;
             int bx1, bx0, bx2,
                 by1, by0, by2;
@@ -140,15 +141,59 @@ namespace Arkanoid
             bx0 = (bx1 + bx2) / 2;
             by1 = ball_y;
             by2 = ball_y + ball.Height;
-            by0= (by1 + by2) / 2;
+            by0 = (by1 + by2) / 2;
             rx1 = brick.Location.X;
             rx2 = rx1 + brick.Width;
             ry1 = brick.Location.Y;
-            ry2 = rx1 + brick.Height;
+            ry2 = ry1 + brick.Height;
+
+            if (rx1 <= bx0 && bx0 <= rx2
+             && ry1 <= by2 && by2 <= ry2)
+            {
+                drop_break(brick);
+                ball_sy = -ball_sy;
+                return;
+            }
+            if (rx1 <= bx0 && bx0 <= rx2
+             && ry1 <= by1 && by1 <= ry2)
+            {
+                drop_break(brick);
+                ball_sy = -ball_sy;
+                return;
+            }
+            if (rx1 <= bx2 && bx2 <= rx2
+             && ry1 <= by0 && by0 <= ry2)
+            {
+                drop_break(brick);
+                ball_sx = -ball_sx;
+                return;
+            }
+            if (rx1 <= bx1 && bx1 <= rx2
+             && ry1 <= by0 && by0 <= ry2)
+            {
+                drop_break(brick);
+                ball_sx = -ball_sx;
+                return;
+            }
+            if ((rx1 <= bx2 && bx2 <= rx2 && ry1 <= by2 && by2 <= ry2) ||
+                (rx1 <= bx1 && bx1 <= rx2 && ry1 <= by2 && by2 <= ry2) ||
+                (rx1 <= bx1 && bx1 <= rx2 && ry1 <= by1 && by1 <= ry2) ||
+                (rx1 <= bx2 && bx2 <= rx2 && ry1 <= by1 && by1 <= ry2))
 
 
-                
 
+            {
+                drop_break(brick);
+                ball_sx = -ball_sx;
+                ball_sy = -ball_sy;
+                return;
+            }
+
+
+        }
+        private void drop_break(Label brick)
+        {
+            brick.Visible = false;
         }
         private void lose_ball()
             {
