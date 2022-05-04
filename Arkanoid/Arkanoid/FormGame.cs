@@ -12,6 +12,7 @@ namespace Arkanoid
 {
     public partial class FormGame : Form
     {
+        static Random rnd = new Random();  
         int racket_x, racket_y;   
         int ball_x,
             ball_y;
@@ -23,6 +24,7 @@ namespace Arkanoid
         int ball_shift_y = 4; 
         int ball_sx,//current ball shift
             ball_sy;
+        int total_bricks;
         public FormGame()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace Arkanoid
             ball_y = ball.Location.Y;
             ball_sx = ball_shift_x;
             ball_sy = -ball_shift_y;
+            total_bricks = 5;
         }
 
       
@@ -98,20 +101,20 @@ namespace Arkanoid
                 rx2 = racket_x + racket.Width;
                 if (rx1 <= bx0 && bx0 <= rx2)
                 {
-                    ball_sy = -ball_shift_y;
+                    ball_sy = -ball_shift_y + rnd.Next(-1, 2);
 
                 }
                 else
                      if (rx1 <= bx2+ball.Width && bx2 + ball.Width <= rx2)
                 {
-                    ball_sy = -ball_shift_y;
-                    ball_sx = -ball_shift_x;
+                    ball_sy = -ball_shift_y + rnd.Next(-1, 2);
+                    ball_sx = -ball_shift_x + rnd.Next(-1, 2);
                 }
                 else
                     if (rx1 <= bx1 - ball.Width && bx1 - ball.Width <= rx2)
                 {
-                    ball_sy = -ball_shift_y;
-                    ball_sx = ball_shift_x;
+                    ball_sy = -ball_shift_y + rnd.Next(-1, 2);
+                    ball_sx = ball_shift_x + rnd.Next(-1, 2);
                 }
                 else
                     lose_ball();
@@ -175,25 +178,31 @@ namespace Arkanoid
                 ball_sx = -ball_sx;
                 return;
             }
-            if ((rx1 <= bx2 && bx2 <= rx2 && ry1 <= by2 && by2 <= ry2) ||
-                (rx1 <= bx1 && bx1 <= rx2 && ry1 <= by2 && by2 <= ry2) ||
-                (rx1 <= bx1 && bx1 <= rx2 && ry1 <= by1 && by1 <= ry2) ||
-                (rx1 <= bx2 && bx2 <= rx2 && ry1 <= by1 && by1 <= ry2))
+            //if ((rx1 <= bx2 && bx2 <= rx2 && ry1 <= by2 && by2 <= ry2) ||
+            //    (rx1 <= bx1 && bx1 <= rx2 && ry1 <= by2 && by2 <= ry2) ||
+            //    (rx1 <= bx1 && bx1 <= rx2 && ry1 <= by1 && by1 <= ry2) ||
+            //    (rx1 <= bx2 && bx2 <= rx2 && ry1 <= by1 && by1 <= ry2))
 
 
 
-            {
-                drop_break(brick);
-                ball_sx = -ball_sx;
-                ball_sy = -ball_sy;
-                return;
-            }
+            //{
+            //    drop_break(brick);
+            //    ball_sx = -ball_sx;
+            //    ball_sy = -ball_sy;
+            //    return;
+            //}
 
 
         }
         private void drop_break(Label brick)
         {
             brick.Visible = false;
+            total_bricks--;
+            if (total_bricks == 0)
+            {
+                MessageBox.Show("Win!", "You are the best");
+                DialogResult = System.Windows.Forms.DialogResult.OK;  
+            }
         }
         private void lose_ball()
             {
